@@ -26,6 +26,26 @@ def create_loan(prestamo: CrearPrestamoSchema):
     return created
 
 
+@router.put("/accept/{id_prestamo}", response_model=PrestamoSchema)
+def accept_loan(id_prestamo: str):
+    accepted = service.aceptar_prestamo(id_prestamo)
+    if accepted == "Prestamo no encontrado":
+        raise HTTPException(status_code=404, detail=accepted)
+    if isinstance(accepted, str):
+        raise HTTPException(status_code=400, detail=accepted)
+    return accepted
+
+
+@router.put("/reject/{id_prestamo}", response_model=PrestamoSchema)
+def reject_loan(id_prestamo: str):
+    rejected = service.rechazar_prestamo(id_prestamo)
+    if rejected == "Prestamo no encontrado":
+        raise HTTPException(status_code=404, detail=rejected)
+    if isinstance(rejected, str):
+        raise HTTPException(status_code=400, detail=rejected)
+    return rejected
+
+
 @router.put("/return/{id_prestamo}", response_model=PrestamoSchema)
 def return_loan(id_prestamo: str):
     returned = service.realizar_devolucion(id_prestamo)

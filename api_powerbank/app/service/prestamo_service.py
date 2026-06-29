@@ -31,6 +31,9 @@ class PrestamoService:
         if self.repo.get_active_by_user(id_usuario):
             return "El usuario ya tiene un prestamo activo"
 
+        if self.repo.get_pending_by_user(id_usuario):
+            return "El usuario ya tiene una solicitud pendiente"
+
         prestamo = PrestamoORM(
             id_prestamo,
             id_usuario,
@@ -39,11 +42,49 @@ class PrestamoService:
             None,
             2,
             0,
-            "Activo",
+            "Pendiente",
         )
 
-        powerbank.estado = "Prestado"
         self.repo.create(prestamo)
+        return prestamo
+
+    def aceptar_prestamo(self, id_prestamo: str):
+        prestamo = self.repo.get(id_prestamo)
+
+        if not prestamo:
+            return "Prestamo no encontrado"
+
+        if prestamo.estado != "Pendiente":
+            return "Solo se pueden aceptar prestamos pendientes"
+
+        powerbank = self.repo.get_powerbank(prestamo.id_powerbank)
+        if not powerbank:
+            return "Power Bank no encontrado"
+
+        if powerbank.estado != "Disponible":
+            return "Power Bank no disponible"
+
+        if self.repo.get_active_by_user(prestamo.id_usuario):
+            return "El usuario ya tiene un prestamo activo"
+
+        prestamo.estado = "Activo"
+        prestamo.fecha_prestamo = datetime.now()
+        powerbank.estado = "Prestado"
+
+        self.repo.update(prestamo)
+        return prestamo
+
+    def rechazar_prestamo(self, id_prestamo: str):
+        prestamo = self.repo.get(id_prestamo)
+
+        if not prestamo:
+            return "Prestamo no encontrado"
+
+        if prestamo.estado != "Pendiente":
+            return "Solo se pueden rechazar prestamos pendientes"
+
+        prestamo.estado = "Rechazado"
+        self.repo.update(prestamo)
         return prestamo
 
     def realizar_devolucion(self, id_prestamo: str):
@@ -54,6 +95,9 @@ class PrestamoService:
 
         if prestamo.estado == "Devuelto":
             return "El prestamo ya fue devuelto"
+
+        if prestamo.estado != "Activo":
+            return "Solo se pueden devolver prestamos activos"
 
         fecha_devolucion = datetime.now()
         horas = (fecha_devolucion - prestamo.fecha_prestamo).total_seconds() / 3600

@@ -32,6 +32,13 @@ class PrestamoRepository:
             .first()
         )
 
+    def get_pending_by_user(self, id_usuario: str):
+        return (
+            self.db.query(PrestamoORM)
+            .filter_by(id_usuario=id_usuario, estado="Pendiente")
+            .first()
+        )
+
     def get_active(self):
         return self.db.query(PrestamoORM).filter_by(estado="Activo").all()
 
