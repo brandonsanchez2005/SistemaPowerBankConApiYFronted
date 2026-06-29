@@ -1,0 +1,95 @@
+// @Authores: Carlos Ovares, Brandon Sanchez
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerBank</title>
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div>
+            <div class="logo">
+                <i class="fa-solid fa-battery-full"></i>
+                <h2>PowerBank</h2>
+            </div>
+
+            <ul class="menu">
+                <li>
+                    <a href="#" id="menuDashboard">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="admin-only">
+                    <a href="#" id="menuUsuarios">
+                        <i class="fa-solid fa-users"></i>
+                        Usuarios
+                    </a>
+                </li>
+                <li class="user-only">
+                    <a href="#" id="menuPerfil">
+                        <i class="fa-solid fa-user"></i>
+                        Mi Perfil
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="menuPowerBanks">
+                        <i class="fa-solid fa-plug"></i>
+                        Power Banks
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="menuPrestamos">
+                        <i class="fa-solid fa-right-left"></i>
+                        Préstamos
+                    </a>
+                </li>
+                <li class="admin-only">
+                    <a href="#" id="menuReportes">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Reportes
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bottom-menu">
+            <span id="nombreUsuario"></span>
+            <button class="btn btn-danger" onclick="cerrarSesion()">
+                Cerrar sesión
+            </button>
+        </div>
+    </aside>
+
+    <main class="contenido">
+        <header class="topbar">
+            <h1 id="tituloPagina">Principal</h1>
+        </header>
+
+        <section id="contenido"></section>
+    </main>
+
+    <div id="modal" class="modal"></div>
+
+    <script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+
+<script src="js/prestamos.js"></script> 
+<script src="js/usuarios.js"></script>
+<script src="js/powerbanks.js"></script>
+<script src="js/reportes.js"></script>
+
+<script src="js/dashboard.js"></script>
+</html>

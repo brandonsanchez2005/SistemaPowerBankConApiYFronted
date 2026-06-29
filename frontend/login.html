@@ -1,0 +1,62 @@
+// @Authores: Carlos Ovares, Brandon Sanchez
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerBank</title>
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<div class="login">
+    <div class="login-card">
+        <div class="login-left">
+            <i class="fa-solid fa-battery-full"></i>
+            <h1>PowerBank</h1>
+            <p>Sistema de administración y préstamo de Power Banks.</p>
+        </div>
+
+        <div class="login-right">
+            <h2>Bienvenido</h2>
+            <p>Ingrese sus credenciales.</p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" placeholder="Ingresa tu correo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <div class="password">
+                        <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+                        <button type="button" id="btnPassword">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn-login" type="submit">Iniciar sesión</button>
+            </form>
+
+            <div id="mensaje"></div>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

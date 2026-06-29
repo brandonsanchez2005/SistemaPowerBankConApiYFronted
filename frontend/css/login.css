@@ -1,0 +1,308 @@
+/* @Authores: Carlos Ovares, Brandon Sanchez*/
+
+body{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#0F4C81,#1C7ED6);
+
+    padding:30px;
+
+}
+
+.login{
+
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.login-card{
+
+    width:100%;
+    max-width:1050px;
+
+    min-height:600px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.20);
+
+}
+
+.login-left{
+
+    background:linear-gradient(160deg,#0F4C81,#1C7ED6);
+
+    color:white;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:60px;
+
+    text-align:center;
+
+}
+
+.login-left i{
+
+    font-size:90px;
+
+    margin-bottom:30px;
+
+}
+
+.login-left h1{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.login-left p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+}
+
+.login-right{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:60px;
+
+}
+
+.login-right h2{
+
+    font-size:34px;
+
+    color:#0F4C81;
+
+    margin-bottom:10px;
+
+}
+
+.login-right p{
+
+    color:#6b7280;
+
+    margin-bottom:35px;
+
+}
+
+/*=========================================
+FORMULARIO
+=========================================*/
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    height:50px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:12px;
+
+    padding:0 16px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.input-group input:focus{
+
+    border-color:#1C7ED6;
+
+    box-shadow:0 0 0 3px rgba(28,126,214,.20);
+
+}
+
+/*=========================================
+CONTRASEÑA
+=========================================*/
+
+.password{
+
+    position:relative;
+
+}
+
+.password input{
+
+    padding-right:55px;
+
+}
+
+.password button{
+
+    position:absolute;
+
+    right:10px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    border:none;
+
+    font-size:18px;
+
+    color:#6b7280;
+
+    cursor:pointer;
+
+}
+
+/*=========================================
+BOTÓN
+=========================================*/
+
+.btn-login{
+
+    width:100%;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#0F4C81;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    margin-top:10px;
+
+}
+
+.btn-login:hover{
+
+    background:#08365c;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================
+MENSAJES
+=========================================*/
+
+#mensaje{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-weight:600;
+
+    color:#E03131;
+
+}
+
+/*=========================================
+RESPONSIVE
+=========================================*/
+
+@media(max-width:900px){
+
+    .login-card{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .login-left{
+
+        padding:40px;
+
+    }
+
+    .login-right{
+
+        padding:40px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .login-left h1{
+
+        font-size:30px;
+
+    }
+
+    .login-right{
+
+        padding:30px;
+
+    }
+
+    .login-right h2{
+
+        font-size:28px;
+
+    }
+
+}
