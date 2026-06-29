@@ -1,3 +1,5 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from fastapi import APIRouter, HTTPException
 
 from app.schemas.usuario_schema import LoginResponseSchema, LoginSchema

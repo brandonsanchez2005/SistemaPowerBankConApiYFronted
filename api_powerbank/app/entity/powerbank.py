@@ -1,3 +1,5 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from sqlalchemy import Column, String
 
 from app.config.database import Base

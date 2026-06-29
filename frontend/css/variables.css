@@ -1,0 +1,49 @@
+/* @Authores: Carlos Ovares, Brandon Sanchez*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+}
+
+input{
+
+    outline:none;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}

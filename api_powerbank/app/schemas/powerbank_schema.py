@@ -1,5 +1,6 @@
-from pydantic import BaseModel, ConfigDict
+# @Authores: Carlos Ovares, Brandon Sanchez
 
+from pydantic import BaseModel, ConfigDict
 
 class PowerBankSchema(BaseModel):
     id_powerbank: str

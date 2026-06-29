@@ -1,3 +1,5 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from fastapi import APIRouter
 
 from app.schemas.report_schema import LoanByUserReportSchema, PowerBankStatusReportSchema

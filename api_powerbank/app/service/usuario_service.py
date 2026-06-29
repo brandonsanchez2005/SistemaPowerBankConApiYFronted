@@ -1,6 +1,7 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from app.entity.usuario import UsuarioORM
 from app.repository.usuario_repository import UsuarioRepository
-
 
 class UsuarioService:
 

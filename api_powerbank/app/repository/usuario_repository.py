@@ -1,3 +1,5 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from app.config.database import SessionLocal
 from app.entity.prestamo import PrestamoORM
 from app.entity.usuario import UsuarioORM

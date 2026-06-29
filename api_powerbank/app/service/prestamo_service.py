@@ -1,8 +1,9 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from datetime import datetime
 
 from app.entity.prestamo import PrestamoORM
 from app.repository.prestamo_repository import PrestamoRepository
-
 
 class PrestamoService:
 

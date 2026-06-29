@@ -1,3 +1,5 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from sqlalchemy import func
 
 from app.config.database import SessionLocal

@@ -1,7 +1,8 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict
-
 
 class PrestamoSchema(BaseModel):
     id_prestamo: str

@@ -1,5 +1,6 @@
-from pydantic import BaseModel
+# @Authores: Carlos Ovares, Brandon Sanchez
 
+from pydantic import BaseModel
 
 class PowerBankStatusReportSchema(BaseModel):
     estado: str

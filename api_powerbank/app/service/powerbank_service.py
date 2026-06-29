@@ -1,6 +1,7 @@
+# @Authores: Carlos Ovares, Brandon Sanchez
+
 from app.entity.powerbank import PowerBankORM
 from app.repository.powerbank_repository import PowerBankRepository
-
 
 class PowerBankService:
 
