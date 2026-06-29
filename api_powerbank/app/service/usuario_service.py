@@ -34,6 +34,12 @@ class UsuarioService:
         if usuario.rol == "Admin":
             return "No se puede eliminar un administrador"
 
+        if usuario.multa_pendiente > 0:
+            return "No se puede eliminar un usuario con multa pendiente"
+
+        if self.repo.has_active_loans(id_usuario):
+            return "No se puede eliminar un usuario con prestamo activo"
+
         return self.repo.delete(id_usuario)
 
     def validar_login(self, correo: str, password: str):

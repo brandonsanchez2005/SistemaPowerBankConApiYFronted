@@ -1,5 +1,6 @@
 from app.config.database import SessionLocal
 from app.entity.powerbank import PowerBankORM
+from app.entity.prestamo import PrestamoORM
 
 
 class PowerBankRepository:
@@ -7,26 +8,37 @@ class PowerBankRepository:
     def __init__(self):
         self.db = SessionLocal()
 
-    def refresh_session(self):
-        self.db.rollback()
-        self.db.expire_all()
-
     def create(self, powerbank: PowerBankORM):
         self.db.add(powerbank)
         self.db.commit()
         return powerbank
 
     def get(self, id_powerbank: str):
-        self.refresh_session()
         return self.db.query(PowerBankORM).filter_by(id_powerbank=id_powerbank).first()
 
     def get_all(self):
-        self.refresh_session()
         return self.db.query(PowerBankORM).all()
 
     def get_available(self):
-        self.refresh_session()
         return self.db.query(PowerBankORM).filter_by(estado="Disponible").all()
+
+    def has_active_loans(self, id_powerbank: str):
+        return (
+            self.db.query(PrestamoORM)
+            .filter_by(id_powerbank=id_powerbank, estado="Activo")
+            .first()
+            is not None
+        )
+
+    def delete_returned_loans(self, id_powerbank: str):
+        loans = (
+            self.db.query(PrestamoORM)
+            .filter_by(id_powerbank=id_powerbank, estado="Devuelto")
+            .all()
+        )
+        for loan in loans:
+            self.db.delete(loan)
+        self.db.commit()
 
     def update(self, powerbank_up: PowerBankORM):
         powerbank = self.get(powerbank_up.id_powerbank)
@@ -40,6 +52,7 @@ class PowerBankRepository:
     def delete(self, id_powerbank: str):
         powerbank = self.get(id_powerbank)
         if powerbank:
+            self.delete_returned_loans(id_powerbank)
             self.db.delete(powerbank)
             self.db.commit()
         return powerbank

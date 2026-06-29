@@ -34,4 +34,7 @@ class PowerBankService:
         if powerbank.estado != "Disponible":
             return "No se puede eliminar un Power Bank prestado"
 
+        if self.repo.has_active_loans(id_powerbank):
+            return "No se puede eliminar un Power Bank con prestamo activo"
+
         return self.repo.delete(id_powerbank)
